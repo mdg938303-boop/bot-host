@@ -1,0 +1,21 @@
+[Unit]
+Description=BotHost Telegram Manager
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=bothost
+Group=bothost
+WorkingDirectory=/opt/bot-host
+EnvironmentFile=/etc/bothost/manager.env
+ExecStart=/opt/bot-host/venv/bin/python /opt/bot-host/main.py
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ReadWritePaths=/opt/bot-host/data /opt/bot-host/bots /opt/bot-host/logs
+
+[Install]
+WantedBy=multi-user.target

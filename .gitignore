@@ -1,0 +1,11 @@
+.env
+*.token
+token.txt
+data/
+logs/
+bots/*
+!bots/.gitkeep
+__pycache__/
+*.pyc
+*.bak
+venv/
